@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "504 Fahhh Alert",
+  "version": "2.0",
+  "description": "Plays the Fahhh sound whenever a 504 Gateway Timeout page is detected!",
+  "permissions": [
+    "offscreen",
+    "tabs",
+    "webNavigation"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["fahhh.mp3", "offscreen.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
